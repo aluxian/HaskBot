@@ -2,48 +2,36 @@
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: 92228d93290986e149ed217f9f819d360cdb75fa27e0ffd3bb3debb2ccd020f2
+-- hash: 92c82387f12bfc8d6059c04da0c11101e77191b6bd23e5258d18b07a12165ce9
 
 name:           haskbot
 version:        0.1.0.0
-description:    Please see the README on Github at <https://github.com/githubuser/haskbot#readme>
-homepage:       https://github.com/githubuser/haskbot#readme
-bug-reports:    https://github.com/githubuser/haskbot/issues
-author:         Author name here
-maintainer:     example@example.com
-copyright:      2018 Author name here
-license:        BSD3
-license-file:   LICENSE
 build-type:     Simple
 cabal-version:  >= 1.10
-
-extra-source-files:
-    ChangeLog.md
-    README.md
-
-source-repository head
-  type: git
-  location: https://github.com/githubuser/haskbot
 
 library
   hs-source-dirs:
       src
   build-depends:
-      base >=4.7 && <5
+      base
+    , haskeline
   exposed-modules:
-      Lib
+      Bot
+      FacebookMessenger.Bot
+      Telegram.Bot
   other-modules:
       Paths_haskbot
   default-language: Haskell2010
 
-executable haskbot-exe
-  main-is: Main.hs
+executable haskbot-console
+  main-is: MainConsole.hs
   hs-source-dirs:
       app
   ghc-options: -threaded -rtsopts -with-rtsopts=-N
   build-depends:
-      base >=4.7 && <5
+      base
     , haskbot
+    , haskeline
   other-modules:
       Paths_haskbot
   default-language: Haskell2010
@@ -55,8 +43,9 @@ test-suite haskbot-test
       test
   ghc-options: -threaded -rtsopts -with-rtsopts=-N
   build-depends:
-      base >=4.7 && <5
+      base
     , haskbot
+    , haskeline
   other-modules:
       Paths_haskbot
   default-language: Haskell2010

@@ -1,1 +1,1 @@
-# haskbot
+# HaskBot
